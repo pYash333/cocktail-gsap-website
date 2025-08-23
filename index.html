@@ -1,11 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/logo.png"
+    />
+    <link rel="icon" type="image/x-icon" href="assets/images/logo.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/logo.png"
+    />
+    <!-- Add css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Velvet Pour</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <div class="container">
+        <div class="header-wrapper flex align-center space-between">
+            <!-- Site Branding -->
+            <div class="site-branding">
+              <a href="/" class="logo flex align-center">
+                <img src="assets/images/logo.png" alt="Site Logo" />
+                <div class="site-title">Velvet Pour</div>
+              </a>
+            </div>
     
-</body>
+            <!-- Navigation -->
+            <nav
+              class="main-navigation"
+              role="navigation"
+              aria-label="Primary Menu"
+            >
+              <ul id="primary-menu" class="menu">
+                <li><a href="/">Cocktails</a></li>
+                <li>
+                  <a href="/about">About Us</a>
+                </li>
+                <li>
+                  <a href="/services">The Art</a>
+                </li>
+                <li>
+                  <a href="/blog">Contact</a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+        <section class="hero-section leaf">
+            <div class="leaf-img leaf-left">
+                <img src="assets/images/leaf-img.png" alt="leaf-img">
+            </div>
+            <div class="leaf-img leaf-right">
+                <img src="assets/images/leaf-img.png" alt="leaf-img">
+            </div>
+            <div class="noise">
+                <img src="assets/images/noise.png" alt="noise">
+            </div>
+            <div class="container">
+                <div class="content-wrapper">
+                    <h1 class="text-center">MOJITO</h1>
+                    <div class="bottom-content flex space-between">
+                        <div class="content-left">
+                            <div>Cool. Crisp. Classic.</div>
+                            <h4>Sip the Spirit of Summer</h4>
+                        </div>
+                        <div class="content-right">
+                            <div class="content">
+                                Every cocktail on our menu is a blend of premium ingredients, creative flair, and timeless recipes — designed to delight your senses. 
+                            </div>
+                            <div class="label">View cocktails</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+  </body>
 </html>
