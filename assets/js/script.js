@@ -1,4 +1,15 @@
 $(function () {
+
+
+  // Header responsive js
+
+  if ($("header.site-header").length) {
+     $(".mobile-menu-btn").on("click", function(){
+      $(this).toggleClass("open");
+      $("nav.main-navigation").slideToggle(300);
+     })
+  }
+
   // Header background js on scroll
   $(window).on("scroll", function () {
     if ($(this).scrollTop() > 30) {
@@ -70,7 +81,7 @@ $(function () {
           trigger: ".hero-menu-wrapper",
           start: "top top",
           end: "bottom bottom",
-          scrub: true,
+          scrub: 2,
           pin: ".video-wrapper", // pin the video wrapper
           pinSpacing: false,
           //   anticipatePin: 1,
