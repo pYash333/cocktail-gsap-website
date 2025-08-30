@@ -42,7 +42,7 @@ $(function () {
     let base = 300;
     let factor = 2;
 
-    gsap.utils.toArray(".leaf-img").forEach((leaf, i) => {
+    gsap.utils.toArray(".hero-section .leaf-img").forEach((leaf, i) => {
       let direction = i % 2 === 0 ? 1 : -1;
       let distance = base + i * base * factor;
 
@@ -58,21 +58,43 @@ $(function () {
       });
     });
   }
-  //   animate video on scroll
-  if ($(".video-wrapper").length) {
+
+  if (document.querySelector(".hero-menu-wrapper")) {
     let video = document.querySelector(".my-video");
+
     video.addEventListener("loadedmetadata", () => {
       gsap.to(video, {
-        currentTime: video.duration, // scrub through full duration
+        currentTime: video.duration,
         ease: "none",
         scrollTrigger: {
-          trigger: "hero-section",
+          trigger: ".hero-menu-wrapper",
           start: "top top",
-          end: "bottom bottom", // scroll distance for scrubbing
-          scrub: 1,
-          pin: true, // keep video fixed during scroll
-          markers: true
+          end: "bottom bottom",
+          scrub: true,
+          pin: ".video-wrapper", // pin the video wrapper
+          pinSpacing: false,
+          //   anticipatePin: 1,
+          //   markers: true,
         },
+      });
+    });
+  }
+
+  if (document.querySelector(".menu-section")) {
+    gsap.utils.toArray(".menu-section .leaf-img").forEach((leaf, i) => {
+      // check if it's left or right leaf
+      let isLeft = i % 2 === 0;
+  
+      gsap.to(leaf, {
+        x: isLeft ? 80 : -80,   // left → +100, right → -100
+        y: isLeft ? -80 : -80,   // left → +100, right → -100
+        scrollTrigger: {
+          trigger: ".menu-section",
+          start: "20% center",
+          end: "bottom center",
+          scrub: 1,
+        //   markers: true
+        }
       });
     });
   }
