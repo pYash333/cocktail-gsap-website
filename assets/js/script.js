@@ -63,7 +63,6 @@ $(function () {
           trigger: ".hero",
           start: "top top",
           end: "bottom top",
-          //   markers: true,
           scrub: 1,
         },
       });
@@ -82,10 +81,8 @@ $(function () {
           start: "top top",
           end: "bottom bottom",
           scrub: 2,
-          pin: ".video-wrapper", // pin the video wrapper
+          pin: ".video-wrapper", 
           pinSpacing: false,
-          //   anticipatePin: 1,
-          //   markers: true,
         },
       });
     });
@@ -93,12 +90,11 @@ $(function () {
 
   if (document.querySelector(".menu-section")) {
     gsap.utils.toArray(".menu-section .leaf-img").forEach((leaf, i) => {
-      // check if it's left or right leaf
       let isLeft = i % 2 === 0;
   
       gsap.to(leaf, {
-        x: isLeft ? 80 : -80,   // left → +100, right → -100
-        y: isLeft ? -80 : -80,   // left → +100, right → -100
+        x: isLeft ? 80 : -80,   
+        y: isLeft ? -80 : -80,   
         scrollTrigger: {
           trigger: ".menu-section",
           start: "20% center",
@@ -109,4 +105,44 @@ $(function () {
       });
     });
   }
+
+  // About section js
+  if (document.querySelector(".image-content-grid")) {
+
+    let splitContent = new SplitText(".image-content-grid h3", {
+      type: "lines",
+      linesClass: "split-line",
+    });
+
+    gsap.from(splitContent.lines, {
+      yPercent: 40,
+      opacity: 0,
+      stagger: 1,
+      delay: 0.7,
+      ease: "expo-out",
+      scrollTrigger: {
+        trigger: ".image-content-grid",
+        start: "top 30%",
+        end: "top 30%",
+        scrub: 1,
+      },
+      
+    });
+
+    
+    gsap.from(".card-grid", {
+      y: 100,
+      opacity: 0,
+      ease: "linear",
+      scrollTrigger: {
+        trigger: ".image-content-grid",     
+        start: "top 0%",
+        end: "top 0%",    
+        scrub: 1,
+        markers: true,
+      }
+    });
+
+  }
+
 });
